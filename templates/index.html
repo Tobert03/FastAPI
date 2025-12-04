@@ -19,6 +19,7 @@
 <script>
 function addItem() {
   const value = document.getElementById("item_name").value;
+  
   fetch(`/add_item/${value}`)
     .then(res => res.text())
     .then(data => {
@@ -27,19 +28,6 @@ function addItem() {
 }
 
 
-/*
-  function addItem() {
-    const itemName = document.getElementById("item_name").value;
-
-    fetch("/add_item/", {method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ item: itemName})})
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("apiResponse").innerText = data.text;
-      })
-  }
-  */
 </script>
 
 </html>
