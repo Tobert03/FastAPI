@@ -22,6 +22,6 @@ def new_item(product_name: str):
 
     conn.commit()
 
-    return f"Neues Item '{product_name}' wurde eingefügt"
+    return {"message": f"Neues item '{product_name}' wurde hinzugefügt"}
   except Exception as e:
-    return f"Item '{product_name}' konnte nicht hinzugefügt werden: {e}"
+    return {"message": f"Neues item '{product_name}' konnte nicht hinzugefügt werden"}

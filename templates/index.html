@@ -7,5 +7,39 @@
 </head>
 <body>
   <h1>Hallo Andreas</h1>
+
+  <div>
+    <label for="Item">Neues Item hinzufügen:</label>
+    <input id="item_name" type="text" placeholder="Item">
+    <button onclick="addItem()">submit</button>
+    <label for="apiResponse"></label>
+  </div>
 </body>
+
+<script>
+function addItem() {
+  const value = document.getElementById("item_name").value;
+  fetch(`/add_item/${value}`)
+    .then(res => res.text())
+    .then(data => {
+        document.getElementById("apiResponse").innerText = data;
+    });
+}
+
+
+/*
+  function addItem() {
+    const itemName = document.getElementById("item_name").value;
+
+    fetch("/add_item/", {method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ item: itemName})})
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("apiResponse").innerText = data.text;
+      })
+  }
+  */
+</script>
+
 </html>
